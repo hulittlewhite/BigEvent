@@ -1,7 +1,10 @@
 package com.itheima.pojo;
 
+import lombok.Data;
+
 import java.time.LocalDateTime;
 
+@Data
 public class Article {
 
     // 主键ID

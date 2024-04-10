@@ -1,7 +1,12 @@
 package com.itheima.pojo;
 
+import lombok.Data;
+
 import java.time.LocalDateTime;
 
+// lombok 在编译阶段，为实体类自动生成 setter、getter、toString 方法
+// pom 文件中引入依赖，在实体类上添加注解
+@Data
 public class User {
 
     // 主键ID
