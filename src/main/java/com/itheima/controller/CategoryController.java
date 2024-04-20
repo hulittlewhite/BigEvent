@@ -29,7 +29,7 @@ public class CategoryController {
     }
 
     @GetMapping("/detail")
-    public Result<Category> getDetail(Integer id) {
+    public Result<Category> getCategoryDetail(Integer id) {
         Category category = categoryService.findCategoryById(id);
         return Result.success(category);
     }
