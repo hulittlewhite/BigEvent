@@ -31,8 +31,8 @@ public class JwtTest {
     public void testParse() {
         // 定义字符串，模拟用户传递过来的 token
         String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9" +
-                ".eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6IkxlYnJvbiJ9LCJleHAiOjE3MTI4MDE1Mjl9" +
-                ".uBml9wtH1tBSornSbyrswFtVUTiHu7aL05UBl6_UjMc";
+                ".eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6IkxlYnJvbiJ9LCJleHAiOjE3NDA1Mzg5NjB9" +
+                ".oeWFPV35-2OtxmWpWwK8hXvvvf1G3ACFZ7rJn5pDKrg";
 
         JWTVerifier jwtVerifier = JWT.require(Algorithm.HMAC256("itheima")).build();
 

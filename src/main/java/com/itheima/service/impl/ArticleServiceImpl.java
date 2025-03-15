@@ -66,8 +66,7 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public Article findArticleById(Integer id) {
-        Article article = articleMapper.findArticleById(id);
-        return article;
+        return articleMapper.findArticleById(id);
     }
 
     @Override

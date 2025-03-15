@@ -28,7 +28,7 @@ public class UserController {
     public Result register(@Pattern(regexp = "^\\S{5,16}$") String username,
                            @Pattern(regexp = "^\\S{5,16}$")String password) {
         // 查询用户
-        User user = userService.findByUserName(username);
+        User user = userService.findByUsername(username);
         if (user == null) {
             // 未被占用，则可以注册
             userService.register(username, password);
@@ -44,7 +44,7 @@ public class UserController {
     public Result login(@Pattern(regexp = "^\\S{5,16}$") String username,
                         @Pattern(regexp = "^\\S{5,16}$")String password) {
         // 根据用户名查询用户
-        User loginUser = userService.findByUserName(username);
+        User loginUser = userService.findByUsername(username);
         // 判断该用户是否存在
         if (loginUser == null) {
             return Result.error("用户名不存在！");
@@ -69,7 +69,7 @@ public class UserController {
 //        String username = (String) map.get("username");
         Map<String, Object> map = ThreadLocalUtil.get();
         String username = (String) map.get("username");
-        User user = userService.findByUserName(username);
+        User user = userService.findByUsername(username);
         return Result.success(user);
     }
 
@@ -100,7 +100,7 @@ public class UserController {
         // 根据用户名取得原密码，再和旧密码比对
         Map<String, Object> map = ThreadLocalUtil.get();
         String username = (String) map.get("username");
-        User loginUser = userService.findByUserName(username);
+        User loginUser = userService.findByUsername(username);
         if (!loginUser.getPassword().equals(Md5Util.getMD5String(oldPwd))) {
             return Result.error("原密码填写不正确！");
         }
