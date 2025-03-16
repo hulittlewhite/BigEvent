@@ -1,5 +1,7 @@
 package com.itheima.service;
 
+import com.itheima.dto.request.PwdUpdateDTO;
+import com.itheima.pojo.Result;
 import com.itheima.pojo.User;
 
 public interface UserService {
@@ -8,7 +10,7 @@ public interface UserService {
     User findByUsername(String username);
 
     // 注册
-    void register(String username, String password);
+    Result register(String username, String password);
 
     // 更新
     void update(User user);
@@ -17,5 +19,12 @@ public interface UserService {
     void updateAvatar(String avatarUrl);
 
     // 更新密码
-    void updatePwd(String newPwd);
+//    Result updatePwd(String newPwd);
+    Result updatePwd(PwdUpdateDTO dto);
+
+    // 登录验证
+    Result authenticateUser(String username, String password);
+
+    // 获取用户信息
+    Result<User> getUserInfo();
 }
