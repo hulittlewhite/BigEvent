@@ -3,6 +3,7 @@ package com.itheima.controller;
 import com.itheima.pojo.Category;
 import com.itheima.pojo.Result;
 import com.itheima.service.CategoryService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -10,11 +11,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/category")
 public class CategoryController {
 
-    @Autowired
-    private CategoryService categoryService;
+    private final CategoryService categoryService;
 
     @PostMapping
     public Result addCategory(@RequestBody @Validated(Category.Add.class) Category category) {

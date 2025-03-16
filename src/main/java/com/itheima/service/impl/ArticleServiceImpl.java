@@ -17,9 +17,16 @@ import java.util.Map;
 @Service
 public class ArticleServiceImpl implements ArticleService {
 
-    @Autowired
-    private ArticleMapper articleMapper;
+    private final ArticleMapper articleMapper;
 
+    public ArticleServiceImpl(ArticleMapper articleMapper) {
+        this.articleMapper = articleMapper;
+    }
+
+    /**
+     * 添加文章
+     * @param article 文章对象
+     */
     @Override
     public void addArticle(Article article) {
         // 补充属性值
@@ -34,7 +41,7 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     /**
-     *
+     * 查询文章列表
      * @param pageNum 当前页码
      * @param pageSize  每页条数
      * @param categoryId 文章分类 ID
@@ -64,17 +71,30 @@ public class ArticleServiceImpl implements ArticleService {
         return pb;
     }
 
+    /**
+     * 根据 ID 查询文章详情
+     * @param id 文章 ID
+     * @return
+     */
     @Override
     public Article findArticleById(Integer id) {
         return articleMapper.findArticleById(id);
     }
 
+    /**
+     * 修改文章
+     * @param article 文章对象
+     */
     @Override
     public void updateArticle(Article article) {
         article.setUpdateTime(LocalDateTime.now());
         articleMapper.updateArticle(article);
     }
 
+    /**
+     * 根据 ID 删除文章
+     * @param id 文章 ID
+     */
     @Override
     public void deleteArticleById(Integer id) {
         articleMapper.deleteArticleById(id);

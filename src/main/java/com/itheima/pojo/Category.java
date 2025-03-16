@@ -3,6 +3,7 @@ package com.itheima.pojo;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.groups.Default;
 import lombok.Data;
 
@@ -17,10 +18,12 @@ public class Category {
 
     // 分类名称
     @NotEmpty
+    @Pattern(regexp = "^\\S{1,8}$", message = "分类名称需为1~8个非空字符")
     private String categoryName;
 
     // 分类别名
     @NotEmpty
+    @Pattern(regexp = "^\\S{1,8}$", message = "分类别名需为1~5个非空字符")
     private String categoryAlias;
 
     // 创建人ID

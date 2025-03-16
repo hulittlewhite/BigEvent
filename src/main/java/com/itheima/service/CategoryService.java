@@ -20,4 +20,10 @@ public interface CategoryService {
 
     // 删除文章分类
     void deleteCategoryById(Integer id);
+
+    // 根据分类名称查询分类信息
+    Category findCategoryByName(String categoryName);
+
+    // 根据分类别名查询分类信息
+    Category findCategoryByAlias(String categoryAlias);
 }

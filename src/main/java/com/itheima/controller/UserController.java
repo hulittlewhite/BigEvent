@@ -5,18 +5,19 @@ import com.itheima.dto.request.RegisterOrLoginDTO;
 import com.itheima.pojo.Result;
 import com.itheima.pojo.User;
 import com.itheima.service.UserService;
+import lombok.RequiredArgsConstructor;
 import org.hibernate.validator.constraints.URL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/user")
 @Validated
+@RequiredArgsConstructor
+@RequestMapping("/user")
 public class UserController {
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
 
     @PostMapping("/register")
     public Result register(@Validated RegisterOrLoginDTO dto) {
@@ -35,14 +36,12 @@ public class UserController {
 
     @PutMapping("/update")
     public Result update(@RequestBody @Validated User user) {
-        userService.update(user);
-        return Result.success();
+        return userService.update(user);
     }
 
     @PatchMapping("updateAvatar")
     public Result updateAvatar(@RequestParam @URL String avatarUrl) {
-        userService.updateAvatar(avatarUrl);
-        return Result.success();
+        return userService.updateAvatar(avatarUrl);
     }
 
     @PatchMapping("/updatePwd")

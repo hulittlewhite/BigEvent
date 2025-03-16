@@ -30,4 +30,12 @@ public interface CategoryMapper {
     // 删除文章分类
     @Delete("delete from category where id = #{id}")
     void deleteCategoryById(Integer id);
+
+    // 根据分类名称查询分类
+    @Select("select * from category where category_name = #{categoryName}")
+    Category findCategoryByName(String categoryName);
+
+    // 根据分类别名查询分类
+    @Select("select * from category where category_alias = #{categoryAlias}")
+    Category findCategoryByAlias(String categoryAlias);
 }

@@ -12,17 +12,16 @@ public interface UserService {
     // 注册
     Result register(String username, String password);
 
-    // 更新
-    void update(User user);
+    // 更新用户昵称和邮箱
+    Result update(User user);
 
     // 更新头像
-    void updateAvatar(String avatarUrl);
+    Result updateAvatar(String avatarUrl);
 
     // 更新密码
-//    Result updatePwd(String newPwd);
     Result updatePwd(PwdUpdateDTO dto);
 
-    // 登录验证
+    // 登录认证
     Result authenticateUser(String username, String password);
 
     // 获取用户信息
